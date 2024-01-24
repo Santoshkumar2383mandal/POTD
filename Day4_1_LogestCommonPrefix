@@ -1,0 +1,22 @@
+class Solution {
+    public String longestCommonPrefix(String[] strs) {
+        StringBuffer sb=new StringBuffer(201);
+
+       Arrays.sort(strs);//after sorting we need to check only fist and last string
+                            //middle elements will automatically contain that char
+       String f=strs[0];
+       String l=strs[strs.length-1];
+       for(int i=0;i<Math.min(f.length(),l.length());i++)
+       {
+           if(f.charAt(i)==l.charAt(i))
+           {
+                 sb.append(f.charAt(i));//add match element in SB
+                  }
+                  else
+                  break;
+          
+       }
+       String str=new String(sb);
+        return str;
+    }
+        
