@@ -1,0 +1,39 @@
+class Solution {
+    public int majorityElement(int[] nums) {
+        Arrays.sort(nums);
+        return  nums[nums.length/2];
+        
+    }
+}
+///////////////////Another solution using hashMap
+class Solution {
+    public int majorityElement(int[] nums) {
+    ///////////////////////////////////////
+
+         Map<Integer,Integer> fre=new HashMap<>();
+        for(int i:nums)
+        {
+            if(fre.containsKey(i))
+            {
+                fre.put(i,fre.get(i)+1);
+            }
+            else
+            {
+                fre.put(i,1);
+            }
+        }
+        int maxfre=0;
+        int ans=0;
+        for(var e:fre.entrySet())
+        {
+            if(e.getValue()>maxfre)
+            {
+                maxfre=e.getValue();
+                ans=e.getKey();
+            }
+        }
+        return ans;
+    /////////////////////////////////////////////
+        
+    }
+}
