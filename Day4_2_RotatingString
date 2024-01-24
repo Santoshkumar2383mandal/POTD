@@ -1,0 +1,19 @@
+class Solution {
+    public boolean rotateString(String s, String goal) {
+        
+        // for(int i=0;i<s.length();i++)
+        // {
+        //     if(s==goal)
+        //     return true;
+        //     else if(goal.equals((s.substring(i,s.length())).concat(s.substring(0,i)))) // take a substring i to 0 and                                                                                  // and add 0 to i substring at end 
+        //     {
+        //         return true;
+        //     }
+
+        // }
+        // return false;
+        String str=s+s; //now it contain whole string ,from there we can
+                        //get goal string if exist in given order 
+        return str.contains(goal);
+    }
+}
