@@ -1,0 +1,25 @@
+class Compute {
+
+    public long minMoves(long a[], long n, long k) {
+        long c=0;
+        for(int i=0;i<a.length-1;i++)
+        {
+            if(a[i]<a[i+1])
+            {
+              int div=(int)(Math.ceil(((a[i+1]-a[i])*1.0)/k)); //take care of the braces
+                c+=div;
+               a[i+1]=a[i+1]-(div*k);
+               
+                //while(a[i]<a[i+1])
+                //{
+                  //  a[i+1]-=k;
+                    
+                    //    c++;
+                //}
+            }
+        }
+    
+        return c%1000000007;
+       
+    }
+}
