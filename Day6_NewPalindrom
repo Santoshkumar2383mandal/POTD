@@ -1,0 +1,45 @@
+import java.util.Scanner;
+
+public class Newpalindrom {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int n=Integer.parseInt(sc.nextLine());
+
+
+
+
+        for(int j=0;j<n;j++)
+        {
+            String s=sc.nextLine();
+
+
+
+            int i=0;
+            int c=0;
+/// divide string into two half and check first half should contain atleast two different digit 
+// string are palindrom already given so don't worry about anything
+            if(s.length()==2 || s.length()==3 )
+            {
+                System.out.println("NO");
+            }
+
+            else {
+
+                while (i <=((s.length())/ 2)-2) {
+                    if (s.charAt(i) != s.charAt(i + 1)) {
+                            c++;
+                        break;
+                    }
+                    i++;
+                }
+                if(c>0)
+                System.out.println("YES");
+                else
+                    System.out.println("NO");
+            }
+        }
+
+
+
+    }
+}
