@@ -1,0 +1,42 @@
+class Solution {
+    
+    public int trap(int[] height) {
+        
+  
+        int Area = 0;
+        if (height.length == 1 || height.length == 2)
+            return 0;
+        else {
+            for (int i = 1; i < height.length - 1; i++) {
+                //int height=Math.max(a[i-1],a[i+1]);
+                int ht = Math.min(leftMax(i, height), righttMax(i, height));
+                int WaterHeight = ht -height[i];
+
+                Area += WaterHeight;
+            }
+            return Area;
+        }
+    
+
+        
+    }
+     public static int leftMax(int index, int[] a) {
+        int max = 0;
+        for (int i = index; i >= 0; i--) {
+            if (a[i] > max)
+                max = a[i];
+        }
+        return max;
+
+    }
+
+    public static int righttMax(int index, int[] a) {
+        int max = 0;
+        for (int i = index; i < a.length; i++) {
+            if (a[i] > max)
+                max = a[i];
+        }
+        return max;
+
+    }
+}
