@@ -1,3 +1,46 @@
+/////////optimize solution////////////////////
+class Solution {
+
+    public int trap(int[] height) {
+   ////////////////left max array//////////////////
+        int[] left=new int[height.length];
+        int leftmax=height[0];
+        left[0]=height[0];
+        for(int i=1;i<height.length;i++)
+        {
+            left[i]=Math.max(height[i],leftmax);
+            leftmax=Math.max(leftmax,height[i]);
+        }
+         /////////right max array ////////////////////
+        int[] right=new int[height.length];
+        int rightmax=height[height.length-1];
+       right[height.length-1]=height[height.length-1];
+        for(int i=height.length-2;i>=0;i--)
+        {
+            right[i]=Math.max(height[i],rightmax);
+            rightmax=Math.max(rightmax,height[i]);
+        } 
+        /////////////////////////////////////////////
+        int Area = 0;
+        if (height.length == 1 || height.length == 2)
+            return 0;
+        else {
+            for (int i = 1; i < height.length - 1; i++) {
+            int ht=Math.min(left[i],right[i]);
+               
+                int WaterHeight = ht - height[i];
+
+                Area += WaterHeight;
+            }
+            return Area;
+        }
+
+    }
+
+}
+
+
+////////////brute force  solution///////////////////
 class Solution {
     
     public int trap(int[] height) {
